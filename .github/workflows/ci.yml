@@ -1,4 +1,4 @@
-name: CI
+name: CI + Semgrep
 
 on:
   pull_request:
@@ -28,3 +28,8 @@ jobs:
         env:
             PYTHONPATH: .
         run: pytest
+
+      - name: Análise de Segurança
+        uses: semgrep/semgrep-action@v1
+        with:
+          config: p/python
